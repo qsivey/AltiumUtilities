@@ -6,7 +6,7 @@ Defined unit's functions
 	* UI = Light-Green - 5-3
 	* Digital = Brown-Gray - 3-6
 	* Analog = Blue - 7-5
-	* Hight Freq / Clock = Purple - 9-4
+	* VHF / Quartz Clock = Purple - 9-4
 	* NC. = Gray - 0-4
 
 - Pins = (MultiFunction = MultiColor):
@@ -14,7 +14,7 @@ Defined unit's functions
 	* VBAT = Orange - 3-4
 	* VREF / VCAP = Green - 5-5
 	* AVDD / AVSS = Dark-Blue - 6-5
-	* OSC / Clock = Purple - 9-4
+	* VHF / Quartz Clock = Purple - 9-4
 	* GPIO / Common = Function
 	* SWD / JTAG / Boot / Reset = Pink - 10-3
 	* Other interfaces = Dark-Purple - 10-6
@@ -23,4 +23,4 @@ Defined unit's functions
 	* ARM Cortex Mx = Blue - 7-5
 	* STM32x... = Purple - 10-5
 
-Plain color - #76A5AF
+Old plain color - #76A5AF
