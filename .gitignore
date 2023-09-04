@@ -1,6 +1,5 @@
 /Libraries/Masks
 /Libraries/Images
-/Libraries/Altium System Library
 /Projects
 /Backups
 
@@ -10,4 +9,4 @@
 *.Zip
 *.zip
 *.rar
-*.Ink
+*.lnk
