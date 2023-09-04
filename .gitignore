@@ -3,9 +3,6 @@
 /Projects
 /Backups
 
-/Libraries/Custom.SchLib
-/Libraries/CustomFPs.PcbLib
-
 *.Zip
 *.zip
 *.rar
