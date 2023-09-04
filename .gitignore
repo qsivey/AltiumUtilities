@@ -1,10 +1,13 @@
 /Libraries/Masks
 /Libraries/Images
+/Libraries/Altium System Library
 /Projects
 /Backups
 
-/Libraries/Excess
+/Libraries/Custom.SchLib
+/Libraries/CustomFPs.PcbLib
 
 *.Zip
 *.zip
 *.rar
+*.Ink
