@@ -1,7 +1,7 @@
 Colored Components - Port, Pin, Text Inside, Line, Designator, Comment :
 	* VDD / GND = Red - 2-7
-	* Power VDD / Power GND = Dark-Blue - 6-6
-	* AVDD / AGND / VREF / VCAP = Green - 5-6
+	* Power Signals = Dark-Blue - 6-6
+	* AVDD / AGND / VREF = Green - 5-6
 	* VHF / Quartz Clock = Purple - 9-4
 	* Digital = Brown - 3-7
 	* Analog = Blue - 7-6
@@ -9,6 +9,3 @@ Colored Components - Port, Pin, Text Inside, Line, Designator, Comment :
 	* Interface = Dark-Purple - 10-6
 	* Interactive = Light-Pink - 10-3
 	* NC. = Light-Gray - 0-5
-
-
-Old plain color - #76A5AF

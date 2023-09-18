@@ -1,11 +1,11 @@
 Altium Utilities
 ================
 
-This is an Altium Designer library that contains grafical symbols, component footprints, project templates, rules. There are the two library types - multi-color symbols for advanced schematic design and classic symbols for standard project engineering.
+This is an Altium Designer library that contains grafical symbols, component footprints, project templates and rules. There are the two library types - multi-color symbols for advanced schematic design and classic symbols for standard project engineering.
 
 ## Rules
 
-- Component parameters order: "Name", "Value", other parameters, Case, Part Number;
+- Component parameters order: Name, Value, other parameters, Case, Part Number, Link and Note;
 
 - A first pin of any element (sch and pcb) is located at origin;
 
