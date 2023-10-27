@@ -3,12 +3,12 @@ object DescriptionToolForm: TDescriptionToolForm
   Top = 0
   Caption = 'Description Tool'
   ClientHeight = 293
-  ClientWidth = 297
+  ClientWidth = 342
   Color = clAppWorkSpace
   Constraints.MaxHeight = 340
-  Constraints.MaxWidth = 315
+  Constraints.MaxWidth = 360
   Constraints.MinHeight = 340
-  Constraints.MinWidth = 315
+  Constraints.MinWidth = 360
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -19,16 +19,16 @@ object DescriptionToolForm: TDescriptionToolForm
   PixelsPerInch = 120
   TextHeight = 16
   object bOk: TButton
-    Left = 40
+    Left = 60
     Top = 260
     Width = 75
     Height = 25
     Caption = 'OK'
-    TabOrder = 1
+    TabOrder = 2
     OnClick = bOkClick
   end
   object bCancel: TButton
-    Left = 190
+    Left = 210
     Top = 260
     Width = 75
     Height = 25
@@ -36,27 +36,31 @@ object DescriptionToolForm: TDescriptionToolForm
     TabOrder = 0
     OnClick = bCancelClick
   end
-  object Select: TGroupBox
+  object gbSettings: TGroupBox
     Left = 8
     Top = 8
-    Width = 280
+    Width = 326
     Height = 200
-    Caption = 'Select'
-    TabOrder = 2
+    Caption = 'Settings'
+    TabOrder = 1
     object CheckListBoxProperties: TCheckListBox
       Left = 8
       Top = 48
       Width = 136
       Height = 144
+      TabStop = False
       OnClickCheck = CheckListBoxPropertiesClickCheck
-      TabOrder = 0
+      ParentShowHint = False
+      ShowHint = False
+      TabOrder = 6
+      OnClick = CheckListBoxPropertiesClick
     end
     object CBComponents: TComboBox
       Left = 8
-      Top = 16
+      Top = 18
       Width = 160
       Height = 24
-      TabOrder = 1
+      TabOrder = 0
       OnDrawItem = CheckListBoxPropertiesClickCheck
       OnSelect = CBComponentsSelect
     end
@@ -97,40 +101,62 @@ object DescriptionToolForm: TDescriptionToolForm
       Height = 17
       TabStop = False
       Caption = 'Force Uppercase'
-      TabOrder = 4
+      TabOrder = 5
       OnClick = cbForceUppercaseClick
     end
     object cbOnlySelected: TCheckBox
       Left = 151
       Top = 146
-      Width = 121
+      Width = 169
       Height = 17
       TabStop = False
       Caption = 'Only Selected'
-      TabOrder = 5
+      TabOrder = 4
+    end
+    object gbFix: TGroupBox
+      Left = 176
+      Top = 48
+      Width = 142
+      Height = 48
+      Caption = 'Fix'
+      TabOrder = 1
+      TabStop = True
+      object eFix: TEdit
+        Left = 7
+        Top = 16
+        Width = 128
+        Height = 24
+        TabOrder = 0
+        OnChange = eFixChange
+      end
     end
   end
   object GroupBox1: TGroupBox
     Left = 8
     Top = 208
-    Width = 280
+    Width = 326
     Height = 48
     Caption = 'Description Example'
     TabOrder = 3
     object pExample: TPanel
-      Left = 9
+      Left = 12
       Top = 17
-      Width = 263
-      Height = 24
+      Width = 302
+      Height = 22
+      Margins.Left = 10
+      Margins.Right = 10
       Alignment = taLeftJustify
       BevelOuter = bvNone
+      BorderWidth = 3
       Color = clActiveCaption
+      Ctl3D = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clGrayText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentBackground = False
+      ParentCtl3D = False
       ParentFont = False
       TabOrder = 0
     end

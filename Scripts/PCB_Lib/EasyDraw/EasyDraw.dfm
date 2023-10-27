@@ -14,6 +14,7 @@ object EasyDrawForm: TEasyDrawForm
   FormStyle = fsStayOnTop
   OldCreateOrder = False
   Position = poDesigned
+  OnClose = EasyDrawFormClose
   FormKind = fkNormal
   PixelsPerInch = 120
   TextHeight = 16
@@ -35,14 +36,14 @@ object EasyDrawForm: TEasyDrawForm
     TabOrder = 0
     OnClick = bCancelClick
   end
-  object GroupBox2: TGroupBox
+  object gbProperties: TGroupBox
     Left = 16
     Top = 8
     Width = 280
     Height = 128
     Caption = 'Properties'
     TabOrder = 1
-    object GroupBox6: TGroupBox
+    object gbLinesPitch: TGroupBox
       Left = 104
       Top = 72
       Width = 80
@@ -57,6 +58,7 @@ object EasyDrawForm: TEasyDrawForm
         TabOrder = 0
         Text = '1,25'
         OnExit = eLinesPitchExit
+        OnKeyPress = eLinesPitchKeyPress
       end
     end
     object rgUnit: TRadioGroup
@@ -133,6 +135,30 @@ object EasyDrawForm: TEasyDrawForm
         Left = 8
         Top = 20
         Width = 64
+        Height = 20
+        Color = clInactiveBorder
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGrayText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object gbRadius: TGroupBox
+      Left = 8
+      Top = 24
+      Width = 88
+      Height = 48
+      Caption = 'Radius'
+      TabOrder = 5
+      Visible = False
+      object pRadius: TPanel
+        Left = 8
+        Top = 20
+        Width = 72
         Height = 20
         Color = clInactiveBorder
         Font.Charset = DEFAULT_CHARSET
