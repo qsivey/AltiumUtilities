@@ -180,7 +180,7 @@ End;
 Function ReturnDoubleEdit(S : String, eName : String) : String;
 Var
    I             : Integer;
-   IsSingleComma : Booline;
+   IsSingleComma : Boolean;
 Begin
      IsSingleComma := False;
      If (S[1] = '0') and Not((S[2] = ',') or (S[2] = '.')) Then

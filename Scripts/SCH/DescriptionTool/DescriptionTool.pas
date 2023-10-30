@@ -246,7 +246,7 @@ Var
    Component  : ISch_Component;
    LibRef     : WideString;
    I          : Integer;
-   CorrectRef : Booline;
+   CorrectRef : Boolean;
 Begin
      LibRef := CBComponents.Text;
      CorrectRef := False;
@@ -309,7 +309,7 @@ Var
    Iterator      : ISch_Iterator;
    Component     : ISch_Component;
    I             : Integer;
-   LibRefCatched : Booline;
+   LibRefCatched : Boolean;
 Begin
      If SchServer = Nil Then
      Begin

@@ -1,17 +1,68 @@
 {..............................................................................}
-{      LibraryStyleChanger v.0.7.3                                               }
-{                                                                              }
+{      LibraryStyleChanger v.0.9                                               }
+{   Changes a color style of selected SchLibs to Classic.                      }
 {                                                                              }
 {                                                                              }
 {..............................................................................}
 
 {..............................................................................}
+                          {Procedures}
+{..............................................................................}
 
-Procedure IterateLibPrimitives(I : Integer);
+Procedure IterateCompPrimitives(Component : ISch_Componen);
 Var
-   SchLib          : ISch_Lib;
-   LibIterator     : ISch_Iterator;
-   Primitive       : ISch_GraphicalObject;
+   PrimitiveIterator : ISch_Iterator;
+   Primitive         : ISch_GraphicalObject;
+Begin
+     Try
+          PrimitiveIterator := Component.SchIterator_Create;
+          Primitive := PrimitiveIterator.FirstSchObject;
+          While Primitive <> Nil Do
+          Begin
+               Case Primitive.ObjectId of
+                    ePin:
+                    Begin
+                         Primitive.SetState_Color := $000000;
+                         Primitive.Designator_CustomColor := $000000;
+                         Primitive.Name_CustomColor := $000000;
+                    End;
+                    eRectangle:
+                    Begin
+                         Primitive.SetState_Color := $000080;
+                         Primitive.SetState_AreaColor := $B0FFFF;
+                         Primitive.SetState_IsSolid := True;
+                         Primitive.SetState_Transparent := True;
+                    End;
+                    ePolygon:
+                    Begin
+                         Primitive.SetState_Color := $FF0000;
+                         Primitive.SetState_AreaColor := $FF0000;
+                    End;
+                    eDesignator:
+                         Primitive.SetState_Color := $800000;
+                    eParameter:
+                         Primitive.SetState_Color := $800000;
+                    ePolyline:
+                         Primitive.SetState_Color := $FF0000;
+                    eArc:
+                         Primitive.SetState_Color := $FF0000;
+                    22:   {Text}
+                         Primitive.SetState_Color := $000000;
+                    eImage:
+                         Component.RemoveSchObject(Primitive);
+               End;
+               Primitive := PrimitiveIterator.NextSchObject;
+          End;
+     Finally
+            Component.SchIterator_Destroy(PrimitiveIterator);
+     End;
+End;
+
+Procedure IterateLibComps(I : Integer);
+Var
+   SchLib       : ISch_Lib;
+   CompIterator : ISch_Iterator;
+   Component    : ISch_Component;
 Begin
      SchLib := SchServer.GetSchDocumentByPath(XPFolderEdit.Text + CheckListBoxSchLibraries.Items.Strings[I]);
      If SchLib = Nil Then
@@ -19,99 +70,25 @@ Begin
           ShowWarning( CheckListBoxSchLibraries.Items.Strings[I] + ' is not Sch Library.');
           Exit;
      End;
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Rectangle}
-     LibIterator.AddFilter_ObjectSet(MkSet(eRectangle));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $000080;
-          Primitive.SetState_IsSolid := True;
-          Primitive.SetState_Transparent := True;
-          Primitive.SetState_AreaColor := $B0FFFF;
-          Primitive := LibIterator.NextSchObject;
+     Try
+          CompIterator := SchLib.SchLibIterator_Create;
+          CompIterator.AddFilter_ObjectSet(MkSet(26));   {Component}
+          Component := CompIterator.FirstSchObject;
+          While Component <> Nil Do
+          Begin
+               IterateCompPrimitives(Component);
+               Component := CompIterator.NextSchObject;
+          End;
+     Finally
+            SchLib.SchIterator_Destroy(CompIterator);
      End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Pin}
-     LibIterator.AddFilter_ObjectSet(MkSet(ePin));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $000000;
-          Primitive.Designator_CustomColor := $000000;
-          Primitive.Name_CustomColor := $000000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Designator}
-     LibIterator.AddFilter_ObjectSet(MkSet(eDesignator));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $800000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Parameter}
-     LibIterator.AddFilter_ObjectSet(MkSet(eParameter));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $800000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Line}
-     LibIterator.AddFilter_ObjectSet(MkSet(ePolyline));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $FF0000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Arc}
-     LibIterator.AddFilter_ObjectSet(MkSet(eArc));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $FF0000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Polygon}
-     LibIterator.AddFilter_ObjectSet(MkSet(ePolygon));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $FF0000;
-          Primitive.SetState_AreaColor := $FF0000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
-
-     LibIterator := SchLib.SchLibIterator_Create;                               {Text}
-     LibIterator.AddFilter_ObjectSet(MkSet(22));
-     Primitive := LibIterator.FirstSchObject;
-     While Primitive <> Nil Do
-     Begin
-          Primitive.SetState_Color := $000000;
-          Primitive := LibIterator.NextSchObject;
-     End;
-     SchLib.SchIterator_Destroy(LibIterator);
 End;
 
 {..............................................................................}
-
+                          {Edit}
 {..............................................................................}
 
-procedure TLibraryStyleChangerForm.XPFolderChange(Sender: TObject);             {Edit Change}
+procedure TLibraryStyleChangerForm.XPFolderChange(Sender: TObject);
 Var
     I                : Integer;
     SchLIBFiles      : TWideStringList;
@@ -141,27 +118,11 @@ Begin
         CheckListBoxSchLibraries.Checked[I] := True;
 End;
 
-procedure TLibraryStyleChangerForm.bEnableAllClick(Sender: TObject);
-var
-    I : Integer;
-begin
-    For I := 0 to CheckListBoxSchLibraries.Items.Count - 1 Do
-        CheckListBoxSchLibraries.Checked[I] := True;
-end;
-
-procedure TLibraryStyleChangerForm.bClearAllClick(Sender: TObject);
-var
-    I : Integer;
-begin
-    For I := 0 to CheckListBoxSchLibraries.Items.Count - 1 Do
-        CheckListBoxSchLibraries.Checked[I] := False;
-end;
-
+{..............................................................................}
+                          {Buttons}
 {..............................................................................}
 
-{..............................................................................}
-
-Procedure TLibraryStyleChangerForm.bRunClick(Sender: TObject);                  {Run Button Click}
+Procedure TLibraryStyleChangerForm.bRunClick(Sender: TObject);
 Var
    Document       : IServerDocument;
    I              : Integer;
@@ -188,7 +149,7 @@ Begin
                    Inc(CheckedCounter);
                    LProcessingState.Caption := 'Processing... ' + IntToStr(CheckedCounter) + ' of ' + IntToStr(CheckedCount);
                    LProcessingState.Refresh;
-                   IterateLibPrimitives(I);
+                   IterateLibComps(I);
                    Document.DoFileSave('Advanced Schematic binary library');
               End;
               Client.CloseDocument(Document);
@@ -197,44 +158,49 @@ Begin
      Close;
 End;
 
+Procedure TLibraryStyleChangerForm.bEnableAllClick(Sender: TObject);
+Var
+    I : Integer;
+Begin
+    For I := 0 to CheckListBoxSchLibraries.Items.Count - 1 Do
+        CheckListBoxSchLibraries.Checked[I] := True;
+End;
+
+Procedure TLibraryStyleChangerForm.bClearAllClick(Sender: TObject);
+Var
+    I : Integer;
+Begin
+    For I := 0 to CheckListBoxSchLibraries.Items.Count - 1 Do
+        CheckListBoxSchLibraries.Checked[I] := False;
+End;
+
 Procedure TLibraryStyleChangerForm.bCancelClick(Sender: TObject);
 Begin
      Close;
 End;
 
 {..............................................................................}
-
+                             {Main}
 {..............................................................................}
 
-Procedure RunLibraryStyleChanger;                                               {Main}
+Procedure RunLibraryStyleChanger;
 Var
-   LastLibDocument     : IServerDocument;
+   Workspace : IWorkspace;
+   WSPrefs   : IWorkspacePreferences;
 Begin
      If SchServer = Nil Then
      Begin
           ShowWarning('Sch Server is not active!');
           Exit;
      End;
-     LastLibDocument := Client.LastActiveDocumentOfType('SCHLIB');
-     If LastLibDocument = Nil Then
-     Begin
-        LastLibDocument := Client.LastActiveDocumentOfType('PCBLIB');
-        If LastLibDocument <> Nil Then
-        Begin
-             XPFolderEdit.InitialDir := ExtractFilePath(LastLibDocument.FileName);
-             XPFolderEdit.Text := XPFolderEdit.InitialDir;
-        End;
-     End
-     Else
-     Begin
-         XPFolderEdit.InitialDir := ExtractFilePath(LastLibDocument.FileName);
-         XPFolderEdit.Text := XPFolderEdit.InitialDir;
-     End;
+     Workspace := GetWorkSpace;
+     If Workspace = Nil Then
+        Exit;
+     WSPrefs := Workspace.DM_Preferences;
+     XPFolderEdit.InitialDir := WSPrefs.GetDefaultLibraryPath;
+     XPFolderEdit.Text := XPFolderEdit.InitialDir;
      LibraryStyleChangerForm.ShowModal;
 End;
-
-
-
 
 End.
 
