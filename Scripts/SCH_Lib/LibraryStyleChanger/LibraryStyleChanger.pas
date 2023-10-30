@@ -1,5 +1,5 @@
 {..............................................................................}
-{      LibraryStyleChanger v.0.9                                               }
+{      LibraryStyleChanger v.1.0                                               }
 {   Changes a color style of selected SchLibs to Classic.                      }
 {                                                                              }
 {                                                                              }
@@ -45,7 +45,10 @@ Begin
                     ePolyline:
                          Primitive.SetState_Color := $FF0000;
                     eArc:
-                         Primitive.SetState_Color := $FF0000;
+                         If Primitive.Radius <> MilsToCoord(20) Then
+                             Primitive.SetState_Color := $FF0000
+                         Else
+                             Primitive.SetState_Color := $000000;
                     22:   {Text}
                          Primitive.SetState_Color := $000000;
                     eImage:
@@ -197,7 +200,7 @@ Begin
      If Workspace = Nil Then
         Exit;
      WSPrefs := Workspace.DM_Preferences;
-     XPFolderEdit.InitialDir := WSPrefs.GetDefaultLibraryPath;
+     XPFolderEdit.InitialDir := WSPrefs.GetDefaultLibraryPath + 'ClassicStyleSymbols';
      XPFolderEdit.Text := XPFolderEdit.InitialDir;
      LibraryStyleChangerForm.ShowModal;
 End;
