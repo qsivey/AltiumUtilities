@@ -1,5 +1,5 @@
 {..............................................................................}
-{       Easy Draw v.1.9.5                                                      }
+{       Easy Draw v.1.9.6                                                      }
 {   Automaticly draws draw layer for PCBLib Components.                        }
 {                                                                              }
 {..............................................................................}
@@ -115,10 +115,28 @@ Begin
     X1 := X0 + Width;
     Y1 := Y0 + Height;
     CornerPitch := ((Width + Height) Mod LinesPitch) / 2;
-    XMarker1 := X0 + CornerPitch;
     YMarker1 := Y0;
     XMarker2 := X0;
-    YMarker2 := Y0 + CornerPitch;
+    If CornerPitch > LinesWidth * 3 Then
+    Begin
+         XMarker1 := X0 + CornerPitch;
+         YMarker2 := Y0 + CornerPitch;
+    End
+    Else
+    Begin
+        XMarker1 := X0 + CornerPitch + LinesPitch;
+        YMarker2 := Y0 + CornerPitch + LinesPitch;
+        If XMarker1 > X1 Then
+        Begin
+             YMarker1 := YMarker1 + XMarker1 - X1;
+             XMarker1 := X1;
+        End;
+        If YMarker2 > Y1 Then
+        Begin
+             XMarker2 := XMarker2 + YMarker2 - Y1;
+             YMarker2 := Y1;
+        End;
+    End;
     While (YMarker1 < Y1) and (XMarker2 < X1) Do
     Begin
          NewTrack := PcbServer.PCBObjectFactory(eTrackObject,eNoDimension,eCreate_Default);
@@ -138,7 +156,10 @@ Begin
                   XMarker1 := X1;
              End
              Else
-                 YMarker1 := YMarker1 + LinesPitch;
+                  If YMarker1 < Y1 - LinesPitch - LinesWidth * 3 Then
+                     YMarker1 := YMarker1 + LinesPitch
+                  Else
+                      YMarker1 := Y1;
          If YMarker2 <= (Y1 - LinesPitch) Then
             YMarker2 := YMarker2 + LinesPitch
          Else
@@ -148,7 +169,10 @@ Begin
                    YMarker2 := Y1;
               End
               Else
-                   XMarker2 := XMarker2 + LinesPitch;
+                   If XMarker2 < X1 - LinesPitch - LinesWidth * 3 Then
+                     XMarker2 := XMarker2 + LinesPitch
+                   Else
+                      XMarker1 := X1;
     End;
 End;
 
