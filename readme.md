@@ -9,17 +9,19 @@ This is an Altium Designer library that contains grafical symbols, component foo
 
 - A first pin of any element (sch and pcb) is located at origin;
 
-- PCB Overlay and Draw layer: 0.15mm, 0.2mm and 0.25mm thickness;
+- PCB Overlay and Draw layer: 0.2mm (0.15mm for tiny elements));
 
 - All strings font ratio: 5:1;
 
-- Custom 3D cases colors: black color = #1C1C1C, dark-gray color = #222222;
+- H - Height, L - Length, P - Pitch;
 
-- H - Height, L - Length, S - Step;
+- MM units priority (Mils for only mils components);
 
-- MM units priority (Mills for only mills components);
+- See the _colorRules.txt and _colorRulesScheme.png in Libraries/ColoredSymbols for examine the multi-color design.
 
-- See the _colorRules.txt and _colorRulesScheme.png for examine the multi-color design.
+## 3D Models
+
+See our 3D models that used for the footprints at: https://grabcad.com/crscnt.moon-1  
 
 ## Feedback
 
