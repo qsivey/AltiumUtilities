@@ -9,7 +9,7 @@ This is an Altium Designer library that contains grafical symbols, component foo
 
 - A first pin of any element (sch and pcb) is located at origin;
 
-- PCB Overlay and Draw layer: 0.2mm (0.15mm for tiny elements));
+- PCB Overlay and Draw layer: 0.2mm (0.15mm for tiny elements);
 
 - All strings font ratio: 5:1;
 
@@ -21,7 +21,7 @@ This is an Altium Designer library that contains grafical symbols, component foo
 
 ## 3D Models
 
-See our 3D models that used for the footprints at: https://grabcad.com/crscnt.moon-1  
+See our 3D models that used for the footprints at: https://grabcad.com/crscnt.moon-1
 
 ## Feedback
 
