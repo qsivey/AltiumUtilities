@@ -1,5 +1,5 @@
 {..............................................................................}
-{      LibraryStyleChanger v.1.0                                               }
+{      LibraryStyleChanger v.1.0.1                                             }
 {   Changes a color style of selected SchLibs to Classic.                      }
 {                                                                              }
 {                                                                              }
@@ -27,6 +27,13 @@ Begin
                          Primitive.Name_CustomColor := $000000;
                     End;
                     eRectangle:
+                    Begin
+                         Primitive.SetState_Color := $000080;
+                         Primitive.SetState_AreaColor := $B0FFFF;
+                         Primitive.SetState_IsSolid := True;
+                         Primitive.SetState_Transparent := True;
+                    End;
+                    eEllipse:
                     Begin
                          Primitive.SetState_Color := $000080;
                          Primitive.SetState_AreaColor := $B0FFFF;
