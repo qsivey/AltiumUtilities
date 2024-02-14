@@ -8,3 +8,5 @@
 *.zip
 *.rar
 *.lnk
+
+/Scripts/SCH_Lib/FootprintManager/FootprintList.dat
