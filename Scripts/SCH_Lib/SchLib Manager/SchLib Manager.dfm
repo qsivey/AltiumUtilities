@@ -1,32 +1,27 @@
-object SchLibCompFPsManager: TSchLibCompFPsManager
+object SchLibManager: TSchLibManager
   Left = 0
   Top = 0
   BiDiMode = bdLeftToRight
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'Footprints Manager '
-  ClientHeight = 452
-  ClientWidth = 698
+  Caption = 'Schematic Library Manager '
+  ClientHeight = 565
+  ClientWidth = 873
   Color = 15132390
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
-  Font.Height = -10
+  Font.Height = -13
   Font.Name = 'Arial'
   Font.Style = []
-  FormStyle = fsStayOnTop
   OldCreateOrder = False
   ParentBiDiMode = False
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 16
   object iContainer: TImage
     Left = 0
     Top = 0
-    Width = 26
-    Height = 26
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Width = 33
+    Height = 33
     Align = alCustom
     Enabled = False
     Picture.Data = {
@@ -203,43 +198,21 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
     Proportional = True
     Stretch = True
   end
-  object bApplyShape: TShape
-    Left = 14
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
-    Brush.Color = 16316664
-    Enabled = False
-    Pen.Color = 12434877
-    Shape = stRoundRect
-  end
   object bCloseShape: TShape
-    Left = 603
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 754
+    Top = 524
+    Width = 90
+    Height = 30
     Brush.Color = 16316664
     Enabled = False
     Pen.Color = 12434877
     Shape = stRoundRect
   end
   object bOkShape: TShape
-    Left = 520
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 650
+    Top = 524
+    Width = 90
+    Height = 30
     Brush.Color = 16316664
     Enabled = False
     Pen.Color = 12434877
@@ -247,18 +220,14 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
   end
   object lbComponentFPsPanel: TXPExtPanel
     Tag = 1
-    Left = 14
-    Top = 13
-    Width = 668
-    Height = 400
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 18
+    Top = 16
+    Width = 835
+    Height = 500
     Alignment = taCenter
     BeginColor = clBlack
     BorderColor = 12434877
-    BorderWidth = 2
+    BorderWidth = 3
     Color = 16119285
     EndColor = clBlack
     GradientStyle = gsLeftToRight
@@ -270,162 +239,185 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
     Transparent = False
     UseDefaultColor = False
     object lLibrary: TXPLabel
-      Left = 237
-      Top = 6
-      Width = 36
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 296
+      Top = 8
+      Width = 45
+      Height = 25
       Alignment = taCenter
       AutoSize = False
       Caption = 'Library'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -10
+      Font.Height = -13
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
       Layout = tlCenter
     end
     object xpeSearchShape: TShape
-      Left = 280
-      Top = 32
-      Width = 110
-      Height = 19
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 350
+      Top = 40
+      Width = 138
+      Height = 24
       Pen.Color = 12434877
       Shape = stRoundRect
     end
-    object XPLabel3: TXPLabel
-      Left = 237
-      Top = 32
-      Width = 36
-      Height = 19
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+    object lbSearch: TXPLabel
+      Left = 296
+      Top = 40
+      Width = 45
+      Height = 24
       Alignment = taCenter
       AutoSize = False
       Caption = 'Search'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -10
+      Font.Height = -13
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
       Layout = tlCenter
     end
     object bRemoveShape: TShape
-      Left = 136
-      Top = 368
-      Width = 72
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 170
+      Top = 460
+      Width = 90
+      Height = 30
       Brush.Color = 16316664
       Enabled = False
       Pen.Color = 12434877
       Shape = stRoundRect
     end
-    object bSavePresetShape: TShape
-      Left = 578
-      Top = 368
-      Width = 72
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+    object bApplyParamShape: TShape
+      Left = 723
+      Top = 460
+      Width = 90
+      Height = 30
       Brush.Color = 16316664
       Enabled = False
       Pen.Color = 12434877
       Shape = stRoundRect
     end
     object bUpdateShape: TShape
-      Left = 402
-      Top = 29
-      Width = 24
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
-      Brush.Color = 16316664
-      Enabled = False
-      Pen.Color = 12434877
-      Shape = stRoundRect
-    end
-    object Shape2: TShape
-      Left = 376
-      Top = 368
-      Width = 48
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 503
+      Top = 36
+      Width = 30
+      Height = 30
       Brush.Color = 16316664
       Enabled = False
       Pen.Color = 12434877
       Shape = stRoundRect
     end
     object addToLeftShape: TShape
-      Left = 242
-      Top = 368
-      Width = 48
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 303
+      Top = 460
+      Width = 60
+      Height = 30
       Brush.Color = 16316664
       Enabled = False
       Pen.Color = 12434877
       Shape = stRoundRect
     end
     object lComponent: TXPLabel
-      Left = 16
-      Top = 6
-      Width = 59
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 20
+      Top = 8
+      Width = 74
+      Height = 25
       Alignment = taCenter
       AutoSize = False
       Caption = 'Component'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -10
+      Font.Height = -13
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
       Layout = tlCenter
     end
+    object lbAddCount: TLabel
+      Left = 236
+      Top = 33
+      Width = 20
+      Height = 16
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Alignment = taRightJustify
+      Caption = '+ 0'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clLime
+      Font.Height = -14
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
+      Visible = False
+    end
+    object lbRemoveCount: TLabel
+      Left = 239
+      Top = 49
+      Width = 17
+      Height = 16
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Alignment = taRightJustify
+      Caption = '- 0'
+      Color = clBlack
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -14
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object bApplyShape: TShape
+      Left = 20
+      Top = 460
+      Width = 90
+      Height = 30
+      Brush.Color = 16316664
+      Enabled = False
+      Pen.Color = 12434877
+      Shape = stRoundRect
+    end
+    object bResetShape: TShape
+      Left = 20
+      Top = 38
+      Width = 50
+      Height = 26
+      Brush.Color = 16316664
+      Enabled = False
+      Pen.Color = 12434877
+      Shape = stRoundRect
+    end
+    object bValidateShape: TShape
+      Left = 76
+      Top = 38
+      Width = 60
+      Height = 26
+      Brush.Color = 16316664
+      Enabled = False
+      Pen.Color = 12434877
+      Shape = stRoundRect
+    end
     object XPExtPanel1: TXPExtPanel
       Tag = 2
-      Left = 11
-      Top = 77
-      Width = 203
-      Height = 283
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 14
+      Top = 96
+      Width = 254
+      Height = 354
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 16316664
       EndColor = clBlack
       GradientStyle = gsLeftToRight
@@ -437,14 +429,10 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       Transparent = False
       UseDefaultColor = False
       object lbComponentFPs: TListBox
-        Left = 10
-        Top = 2
-        Width = 192
-        Height = 280
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
+        Left = 12
+        Top = 3
+        Width = 240
+        Height = 349
         TabStop = False
         Style = lbOwnerDrawFixed
         BorderStyle = bsNone
@@ -456,19 +444,15 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       end
     end
     object lbComponentFPsLabelPanel: TXPExtPanel
-      Left = 11
-      Top = 58
-      Width = 203
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 14
+      Top = 73
+      Width = 254
+      Height = 26
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 15132390
       Enabled = False
       EndColor = clBlack
@@ -484,38 +468,30 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       object lbComponentFPsLabel: TXPLabel
         Left = 0
         Top = 0
-        Width = 144
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
+        Width = 180
+        Height = 26
         Alignment = taCenter
         AutoSize = False
         Caption = 'Component'#39's Footprints'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -10
+        Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
         Layout = tlCenter
       end
       object lbComponentFPsCount: TXPLabel
-        Left = 166
+        Left = 200
         Top = 0
-        Width = 32
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
-        Alignment = taRightJustify
+        Width = 41
+        Height = 26
+        Alignment = taCenter
         AutoSize = False
         Caption = 'count'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -10
+        Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsItalic]
         ParentFont = False
@@ -523,19 +499,15 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       end
     end
     object lbLibraryFPsLabelPanel: TXPExtPanel
-      Left = 232
-      Top = 58
-      Width = 203
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 290
+      Top = 73
+      Width = 254
+      Height = 26
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 15132390
       Enabled = False
       EndColor = clBlack
@@ -551,38 +523,30 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       object lbLibraryFPsLabel: TXPLabel
         Left = 0
         Top = 0
-        Width = 120
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
+        Width = 150
+        Height = 26
         Alignment = taCenter
         AutoSize = False
         Caption = 'Library Footprints'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -10
+        Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
         Layout = tlCenter
       end
       object lbLibraryFPsCount: TXPLabel
-        Left = 123
+        Left = 200
         Top = 0
-        Width = 75
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
-        Alignment = taRightJustify
+        Width = 41
+        Height = 26
+        Alignment = taCenter
         AutoSize = False
-        Caption = 'need update '#8593'    '
+        Caption = '0'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -10
+        Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsItalic]
         ParentFont = False
@@ -591,19 +555,15 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
     end
     object lbLibraryFPsPanel: TXPExtPanel
       Tag = 2
-      Left = 232
-      Top = 77
-      Width = 203
-      Height = 283
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 290
+      Top = 96
+      Width = 254
+      Height = 354
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 16316664
       EndColor = clBlack
       GradientStyle = gsLeftToRight
@@ -615,14 +575,10 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       Transparent = False
       UseDefaultColor = False
       object lbLibraryFPs: TListBox
-        Left = 10
-        Top = 2
-        Width = 192
-        Height = 280
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
+        Left = 12
+        Top = 3
+        Width = 240
+        Height = 349
         TabStop = False
         Style = lbOwnerDrawFixed
         BorderStyle = bsNone
@@ -634,14 +590,10 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       end
     end
     object cbLibraries: TComboBox
-      Left = 278
-      Top = 6
-      Width = 149
+      Left = 348
+      Top = 8
+      Width = 186
       Height = 22
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
       Style = csOwnerDrawFixed
       Sorted = True
       TabOrder = 4
@@ -650,19 +602,15 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
     end
     object XPExtPanel2: TXPExtPanel
       Tag = 2
-      Left = 453
-      Top = 77
-      Width = 203
-      Height = 283
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 566
+      Top = 96
+      Width = 254
+      Height = 354
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 16316664
       EndColor = clBlack
       GradientStyle = gsLeftToRight
@@ -673,38 +621,26 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       TabOrder = 5
       Transparent = False
       UseDefaultColor = False
-      object ListBox1: TListBox
-        Left = 10
-        Top = 2
-        Width = 192
-        Height = 280
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
-        TabStop = False
+      object cblParameters: TCheckListBox
+        Left = 12
+        Top = 8
+        Width = 240
+        Height = 336
         BorderStyle = bsNone
         Color = 16316664
-        ItemHeight = 13
-        MultiSelect = True
-        Sorted = True
         TabOrder = 0
       end
     end
     object XPExtPanel3: TXPExtPanel
-      Left = 453
-      Top = 58
-      Width = 203
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 566
+      Top = 73
+      Width = 254
+      Height = 26
       ParentCustomHint = False
       Alignment = taCenter
       BeginColor = clBlack
       BorderColor = 12434877
-      BorderWidth = 2
+      BorderWidth = 3
       Color = 15132390
       Enabled = False
       EndColor = clBlack
@@ -717,21 +653,17 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       TabStop = True
       Transparent = False
       UseDefaultColor = False
-      object XPLabel2: TXPLabel
+      object lbParameters: TXPLabel
         Left = 0
         Top = 0
-        Width = 120
-        Height = 21
-        Margins.Left = 2
-        Margins.Top = 2
-        Margins.Right = 2
-        Margins.Bottom = 2
+        Width = 150
+        Height = 26
         Alignment = taCenter
         AutoSize = False
-        Caption = 'Preset Footprints'
+        Caption = 'Parameters'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -10
+        Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
@@ -739,19 +671,15 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       end
     end
     object xpeSearch: TXPEdit
-      Left = 286
-      Top = 32
-      Width = 104
-      Height = 21
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 358
+      Top = 40
+      Width = 130
+      Height = 26
       AutoSize = False
       Color = 16316664
       EmptyCaptionFont.Charset = DEFAULT_CHARSET
       EmptyCaptionFont.Color = clWindowText
-      EmptyCaptionFont.Height = -10
+      EmptyCaptionFont.Height = -13
       EmptyCaptionFont.Name = 'Arial'
       EmptyCaptionFont.Style = []
       FrameColor = 12434877
@@ -763,14 +691,10 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       OnChange = eSearchChange
     end
     object bRemove: TXPButtonEx
-      Left = 136
-      Top = 368
-      Width = 72
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 170
+      Top = 460
+      Width = 90
+      Height = 30
       Transparent = True
       Caption = 'Remove'
       ParentColor = False
@@ -779,29 +703,22 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
       OnClick = bRemoveClick
     end
     object bSavePreset: TXPButtonEx
-      Left = 578
-      Top = 368
-      Width = 72
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 723
+      Top = 460
+      Width = 90
+      Height = 30
       Transparent = True
-      Caption = 'Save'
+      Caption = 'Apply'
       ParentColor = False
       TabOrder = 9
       TabStop = False
+      OnClick = bApplyParamClick
     end
     object bUpdate: TXPBitBtn
-      Left = 402
-      Top = 29
-      Width = 24
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 503
+      Top = 36
+      Width = 30
+      Height = 30
       TabOrder = 10
       OnClick = bUpdateClick
       Glyph.Data = {
@@ -859,17 +776,12 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
         C122512179BE49BC64BEDFFB0FE07128871BC08FBC0000000049454E44AE4260
         82}
       LookAndFeel = xlfCustom
-      Spacing = 3
     end
     object bAddToLeft: TXPBitBtn
-      Left = 242
-      Top = 368
-      Width = 48
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 303
+      Top = 460
+      Width = 60
+      Height = 30
       TabOrder = 11
       OnClick = bAddToLeftClick
       Glyph.Data = {
@@ -921,147 +833,100 @@ object SchLibCompFPsManager: TSchLibCompFPsManager
         2BBCE9EF001060775FC60CA4FA7FEE8CCA1B100750038C3A60D401A30E187007
         0000D000F5C193F98E4B0000000049454E44AE426082}
       LookAndFeel = xlfCustom
-      Spacing = 3
-    end
-    object XPBitBtn1: TXPBitBtn
-      Left = 376
-      Top = 368
-      Width = 48
-      Height = 24
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
-      TabOrder = 12
-      Glyph.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
-        00200806000000737A7AF40000001974455874536F6674776172650041646F62
-        6520496D616765526561647971C9653C0000036669545874584D4C3A636F6D2E
-        61646F62652E786D7000000000003C3F787061636B657420626567696E3D22EF
-        BBBF222069643D2257354D304D7043656869487A7265537A4E54637A6B633964
-        223F3E203C783A786D706D65746120786D6C6E733A783D2261646F62653A6E73
-        3A6D6574612F2220783A786D70746B3D2241646F626520584D5020436F726520
-        352E332D633031312036362E3134353636312C20323031322F30322F30362D31
-        343A35363A32372020202020202020223E203C7264663A52444620786D6C6E73
-        3A7264663D22687474703A2F2F7777772E77332E6F72672F313939392F30322F
-        32322D7264662D73796E7461782D6E7323223E203C7264663A44657363726970
-        74696F6E207264663A61626F75743D222220786D6C6E733A786D704D4D3D2268
-        7474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220
-        786D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D
-        2F7861702F312E302F73547970652F5265736F75726365526566232220786D6C
-        6E733A786D703D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
-        312E302F2220786D704D4D3A4F726967696E616C446F63756D656E7449443D22
-        786D702E6469643A304634323634453432393430453531313946313039383941
-        32314631304431352220786D704D4D3A446F63756D656E7449443D22786D702E
-        6469643A39463834423534393430324331314535413943454634413945443437
-        394542322220786D704D4D3A496E7374616E636549443D22786D702E6969643A
-        3946383442353438343032433131453541394345463441394544343739454232
-        2220786D703A43726561746F72546F6F6C3D2241646F62652050686F746F7368
-        6F7020435336202857696E646F777329223E203C786D704D4D3A446572697665
-        6446726F6D2073745265663A696E7374616E636549443D22786D702E6969643A
-        4535334139413535324334304535313139463130393839413231463130443135
-        222073745265663A646F63756D656E7449443D22786D702E6469643A30463432
-        36344534323934304535313139463130393839413231463130443135222F3E20
-        3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
-        783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E60F5
-        22B90000022A4944415478DAEDD44F68D3701407F0B79350BCF5E2C1550F1E6C
-        61879E0495E9AA6C526B5191F48FE255D0CB86A017612208C260E25484E14010
-        06CA40A64EB13751146D354D13626D13A3FD9776EDE8DA948CB4497EA67A121C
-        4D7F2DEB25EFF20EE1F7CDE7F742DE10420806594316C00258005CC0C1A9A7F7
-        8C36F9FE36A10E04E09D8E184751A456AB053EDC21D6B71C706E8E44237B87E1
-        638C4D8A62D1F7E92EC16F29E0C202873C6E07A4C406B069A1CAA5F953D1FBC4
-        DBBE010E5C7E891C0EC77F9FD96C36B0DBEDE0DEBD1D92250D90A640269F6F51
-        71E622F98078D81700314BA113A3CE8E01A992FEA76BAA026BD50A443FC76755
-        55BD92980F683D014ECF50C877C809E9A26EFA369AA6822CAF432C46BFAAD7EB
-        417621206103FCB72874FCB01338D13CE02F4203A559874422C9948AABFED4A3
-        808005F0DE8C23EF980BF882A949FE53AD560BC4621EC8AFD4F28FC7C1935880
-        F11B7174CCE30221DF1DA0FDF24AA5020CC32CC9B27C3EB318DCC00278A64934
-        71C4053F73E601CD66134451049AA6678C4F71B5F024D4F11FDF14307A8D44E3
-        475DF02BDB19D0CE501405B2D9ACCAB2ECA5D5A5D0BC59F4A680E1B3CB1DF740
-        BBB7CF1BA3064110249EE7CFAC3D0B454C8F0C7AD88463D7BFA37DFB77C137A6
-        0A1CC76572B99CAFF63C44779B830D704F46D19E919D107BC77C2997CBFEC64A
-        B88093830DD8115C41BAAEBF902429BCF13ADCC00AE905B06D6271CE6853CA9B
-        70F78BA21F807E9505B0001660E080DFB1496AD006AA59580000000049454E44
-        AE426082}
-      LookAndFeel = xlfCustom
-      Spacing = 3
     end
     object cbComponents: TComboBox
-      Left = 80
-      Top = 6
-      Width = 130
+      Left = 100
+      Top = 8
+      Width = 163
       Height = 22
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
       Style = csOwnerDrawFixed
       Sorted = True
-      TabOrder = 13
+      TabOrder = 12
       StyleElements = [seBorder]
       OnSelect = cbComponentsSelect
     end
     object ProgressBar: TProgressBar
-      Left = 279
-      Top = 7
-      Width = 147
-      Height = 20
-      Margins.Left = 2
-      Margins.Top = 2
-      Margins.Right = 2
-      Margins.Bottom = 2
+      Left = 348
+      Top = 8
+      Width = 186
+      Height = 22
       Enabled = False
       BarColor = clGreen
       BackgroundColor = clBlack
+      TabOrder = 13
+      Visible = False
+    end
+    object cbPadFilter: TCheckBox
+      Left = 145
+      Top = 38
+      Width = 82
+      Height = 26
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Pad Filter'
       TabOrder = 14
       Visible = False
     end
-  end
-  object bApply: TXPButtonEx
-    Left = 14
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
-    Transparent = True
-    Caption = 'Apply'
-    ParentColor = False
-    TabOrder = 1
-    TabStop = False
-    OnClick = bApplyClick
+    object bApply: TXPButtonEx
+      Left = 20
+      Top = 460
+      Width = 90
+      Height = 30
+      Transparent = True
+      Caption = 'Apply'
+      ParentColor = False
+      TabOrder = 15
+      TabStop = False
+      OnClick = bApplyClick
+    end
+    object bReset: TXPButtonEx
+      Left = 20
+      Top = 38
+      Width = 50
+      Height = 26
+      Transparent = True
+      Caption = 'Reset'
+      ParentColor = False
+      TabOrder = 16
+      TabStop = False
+      OnClick = bResetClick
+    end
+    object bValidate: TXPButtonEx
+      Left = 76
+      Top = 38
+      Width = 60
+      Height = 26
+      Transparent = True
+      Caption = 'Validate'
+      ParentColor = False
+      TabOrder = 17
+      TabStop = False
+      OnClick = bValidateClick
+    end
   end
   object bOk: TXPButtonEx
-    Left = 520
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 650
+    Top = 524
+    Width = 90
+    Height = 30
     Transparent = True
     Caption = 'OK'
     ParentColor = False
-    TabOrder = 2
+    TabOrder = 1
     TabStop = False
     OnClick = bOkClick
   end
   object bClose: TXPButtonEx
-    Left = 603
-    Top = 419
-    Width = 72
-    Height = 24
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 754
+    Top = 524
+    Width = 90
+    Height = 30
     Transparent = True
     Caption = 'Close'
     ParentColor = False
-    TabOrder = 3
+    TabOrder = 2
     TabStop = False
     OnClick = bCloseClick
   end
