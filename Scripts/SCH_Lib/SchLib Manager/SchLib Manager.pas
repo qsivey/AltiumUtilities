@@ -1,5 +1,5 @@
 {..............................................................................}
-{      SchLibManager v0.7                                         WIP          }
+{      SchLibManager v0.7.1                                       WIP          }
 {                                                                              }
 {   Manager for schematic lib component's footprints and parameters.           }
 {                                                                              }
@@ -23,7 +23,7 @@ Var
 
 Procedure SetGUI(Dummy : Integer = 0);
 Const
-    ScriptVersion = 'v0.7';
+    ScriptVersion = 'v0.7.1';
     cldBorderActive = $222222
     cldBorderUnactive = $353535;
     cldBorderHighlighted = $A2D2FD;
@@ -438,10 +438,13 @@ Begin
         Parameter := ParamIterator.FirstSchObject;
         While Parameter <> Nil Do
         Begin
-            OldParamList.Append(Parameter.Name + '|' + Parameter.Text);
-            SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_BeginModify, c_NoEventData);
-            SchLib.CurrentSchComponent.Remove_Parameter(Parameter);
-            SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_EndModify, c_NoEventData);
+            If Parameter.Name <> 'Comment' Then
+            Begin
+                OldParamList.Append(Parameter.Name + '|' + Parameter.Text);
+                SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_BeginModify, c_NoEventData);
+                SchLib.CurrentSchComponent.Remove_Parameter(Parameter);
+                SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_EndModify, c_NoEventData);
+            End;
             Parameter := ParamIterator.NextSchObject;
         End;
 
@@ -451,7 +454,11 @@ Begin
                 SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_BeginModify, c_NoEventData);
                 Parameter := SchLib.CurrentSchComponent.AddSchParameter;
                 SchServer.RobotManager.SendMessage(SchLib.CurrentSchComponent.I_ObjectAddress, c_BroadCast, SCHM_EndModify, c_NoEventData);
+
                 Parameter.Name := cblParameters.Items.Strings[I];
+                Parameter.Text := '';
+                Parameter.Color := SchLib.CurrentSchComponent.Designator.Color;
+
                 For J := 0 to OldParamList.Count - 1 Do
                     If ContainsStr(OldParamList.Strings[J], Parameter.Name + '|') Then
                         Parameter.Text := Copy(OldParamList.Strings[J], Pos('|', OldParamList.Strings[J]) + 1, Length(OldParamList.Strings[J]) - 1);
@@ -495,10 +502,8 @@ Var
 Begin
     Path := SchLib.DocumentName;
     For I : = 0 to IntMan.GetComponentCount(Path) - 1 Do
-    Begin
-        If cbComponents.Items.Strings[cbComponents.Items.Add(IntMan.GetComponentName(Path, I))] = SchLib.CurrentSchComponent.LibReference Then
-            cbComponents.ItemIndex := I;
-    End;
+        cbComponents.Items.Add(IntMan.GetComponentName(Path, I));
+    cbComponents.ItemIndex := cbComponents.Items.IndexOf(SchLib.CurrentSchComponent.LibReference);
     lbComponentFPs.Items.Text := GetCurrentCompFPsList;
 End;
 
@@ -599,6 +604,51 @@ End;
 Procedure TSchLibManager.bCloseClick(Sender: TObject);
 Begin
     SchLibManager.Close;
+End;
+
+Procedure TSchLibManager.bTempClick(Sender: TObject);
+Var
+    CompIterator  : ISch_Iterator;
+    Component     : ISch_Component;
+    ParamIterator : ISch_Iterator;
+    Parameter     : ISch_Parameter;
+    FixCount      : Integer;
+Begin
+    FixCount := 0;
+    SchLib.LockViewUpdate;
+
+    CompIterator := SchLib.SchLibIterator_Create;
+    Try
+        CompIterator.AddFilter_ObjectSet(MkSet(26));   {Component}
+        Component := CompIterator.FirstSchObject;
+        While Component <> Nil Do
+        Begin
+            ParamIterator := Component.SchIterator_Create;
+            Try
+                ParamIterator.AddFilter_ObjectSet(MkSet(eParameter));
+                Parameter := ParamIterator.FirstSchObject;
+                While Parameter <> Nil Do
+                Begin
+                    If Parameter.Color <> Component.Designator.Color Then
+                    Begin
+                        Parameter.Color := Component.Designator.Color;
+                        Inc(FixCount);
+                    End;
+
+                    Parameter := ParamIterator.NextSchObject;
+                End;
+            Finally
+                Component.SchIterator_Destroy(ParamIterator);
+            End;
+
+            Component := CompIterator.NextSchObject;
+        End;
+    Finally
+        SchLib.SchIterator_Destroy(CompIterator);
+    End;
+
+    SchLib.UnLockViewUpdate;
+    ShowInfo(IntToStr(FixCount) + ' parameters have been fixed.', '');
 End;
 
 Procedure TSchLibManager.bUpdateClick(Sender: TObject);

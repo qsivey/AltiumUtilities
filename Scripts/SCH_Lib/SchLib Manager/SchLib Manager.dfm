@@ -407,6 +407,16 @@ object SchLibManager: TSchLibManager
       Pen.Color = 12434877
       Shape = stRoundRect
     end
+    object bTempShape: TShape
+      Left = 754
+      Top = 12
+      Width = 60
+      Height = 30
+      Brush.Color = 16316664
+      Enabled = False
+      Pen.Color = 12434877
+      Shape = stRoundRect
+    end
     object XPExtPanel1: TXPExtPanel
       Tag = 2
       Left = 14
@@ -719,6 +729,9 @@ object SchLibManager: TSchLibManager
       Top = 36
       Width = 30
       Height = 30
+      Hint = 'Update Libraries DataList'
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 10
       OnClick = bUpdateClick
       Glyph.Data = {
@@ -904,6 +917,21 @@ object SchLibManager: TSchLibManager
       TabOrder = 17
       TabStop = False
       OnClick = bValidateClick
+    end
+    object bTemp: TXPButtonEx
+      Left = 754
+      Top = 12
+      Width = 60
+      Height = 30
+      Hint = 'Validate that designator colors match parameter colors'
+      Transparent = True
+      Caption = 'TempBtn'
+      ParentColor = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 18
+      TabStop = False
+      OnClick = bTempClick
     end
   end
   object bOk: TXPButtonEx
