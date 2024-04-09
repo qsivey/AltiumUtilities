@@ -761,7 +761,7 @@ Begin
     End;
     WorkSpace := GetWorkspace;
     For I := 0 to WorkSpace.DM_ProjectCount Do
-        If (WorkSpace.DM_Projects(I) <> Nil) and (WorkSpace.DM_Projects(I).DM_ProjectFileName = 'SchLib Manager.PrjScr') Then
+        If (WorkSpace.DM_Projects(I) <> Nil) and (WorkSpace.DM_Projects(I).DM_ProjectFileName = 'SchLibManager.PrjScr') Then
         Begin
             Dir := ExtractFileDirFromPath(WorkSpace.DM_Projects(I).DM_ProjectFullPath);
             Break;
