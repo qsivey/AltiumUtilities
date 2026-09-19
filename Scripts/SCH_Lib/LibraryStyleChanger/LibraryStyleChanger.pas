@@ -207,7 +207,7 @@ Begin
      If Workspace = Nil Then
         Exit;
      WSPrefs := Workspace.DM_Preferences;
-     XPFolderEdit.InitialDir := WSPrefs.GetDefaultLibraryPath + 'ClassicStyleSymbols';
+     XPFolderEdit.InitialDir := WSPrefs.GetDefaultLibraryPath + '\ClassicStyleSymbols';
      XPFolderEdit.Text := XPFolderEdit.InitialDir;
      LibraryStyleChangerForm.ShowModal;
 End;
