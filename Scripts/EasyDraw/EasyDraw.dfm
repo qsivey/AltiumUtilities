@@ -1,0 +1,223 @@
+object EasyDrawForm: TEasyDrawForm
+  Left = 0
+  Top = 0
+  Cursor = crCross
+  Caption = 'Easy Draw'
+  ClientHeight = 138
+  ClientWidth = 250
+  Color = clAppWorkSpace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesigned
+  OnClose = EasyDrawFormClose
+  FormKind = fkNormal
+  PixelsPerInch = 96
+  TextHeight = 12
+  object bOk: TButton
+    Left = 26
+    Top = 114
+    Width = 60
+    Height = 20
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
+    Caption = 'OK'
+    TabOrder = 0
+    OnClick = bOkClick
+  end
+  object bCancel: TButton
+    Left = 161
+    Top = 114
+    Width = 60
+    Height = 20
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
+    Caption = 'Cancel'
+    TabOrder = 1
+    OnClick = bCancelClick
+  end
+  object gbProperties: TGroupBox
+    Left = 13
+    Top = 6
+    Width = 224
+    Height = 103
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
+    Caption = 'Properties'
+    TabOrder = 2
+    object gbLinesPitch: TGroupBox
+      Left = 83
+      Top = 58
+      Width = 64
+      Height = 38
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Lines Pitch'
+      TabOrder = 1
+      object eLinesPitch: TEdit
+        Left = 6
+        Top = 13
+        Width = 52
+        Height = 20
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        TabOrder = 0
+        Text = '1,25'
+        OnExit = eLinesPitchExit
+        OnKeyPress = eLinesPitchKeyPress
+      end
+    end
+    object rgUnit: TRadioGroup
+      Left = 154
+      Top = 11
+      Width = 64
+      Height = 85
+      Caption = ' Unit '
+      ItemIndex = 0
+      Items.Strings = (
+        'MMs'
+        'Mils')
+      TabOrder = 0
+      OnClick = rgUnitClick
+    end
+    object gbWidth: TGroupBox
+      Left = 6
+      Top = 19
+      Width = 71
+      Height = 39
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Width'
+      TabOrder = 2
+      object pWidth: TPanel
+        Left = 6
+        Top = 16
+        Width = 58
+        Height = 16
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Color = clInactiveBorder
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGrayText
+        Font.Height = -10
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object gbHeight: TGroupBox
+      Left = 6
+      Top = 58
+      Width = 71
+      Height = 38
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Height'
+      TabOrder = 3
+      object pHeight: TPanel
+        Left = 6
+        Top = 16
+        Width = 58
+        Height = 16
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Color = clInactiveBorder
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGrayText
+        Font.Height = -10
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object gbLinesWidth: TGroupBox
+      Left = 83
+      Top = 19
+      Width = 64
+      Height = 39
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Lines Width'
+      TabOrder = 4
+      object pLinesWidth: TPanel
+        Left = 6
+        Top = 16
+        Width = 52
+        Height = 16
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Color = clInactiveBorder
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGrayText
+        Font.Height = -10
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object gbRadius: TGroupBox
+      Left = 6
+      Top = 19
+      Width = 71
+      Height = 39
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Radius'
+      TabOrder = 5
+      Visible = False
+      object pRadius: TPanel
+        Left = 6
+        Top = 16
+        Width = 58
+        Height = 16
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Color = clInactiveBorder
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGrayText
+        Font.Height = -10
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+  end
+end

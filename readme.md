@@ -3,6 +3,20 @@ Altium Utilities
 
 This is an Altium Designer library that contains grafical symbols, component footprints, project templates and rules. There are the two library types - multi-color symbols for advanced schematic design and classic symbols for standard project engineering.
 
+## Adaptive color schemes
+
+Adaptive color scheme customization is now available for schematic symbols and sheets: choose a shared preset from [Libraries/StylePresets.txt](Libraries/StylePresets.txt) or adjust individual colors with LibraryStyleChanger and SchematicStyleChanger.
+
+![Color scheme example 1](Other/Images/Screenshot_151.png)
+
+![Color scheme example 2](Other/Images/Screenshot_153.png)
+
+![Color scheme example 3](Other/Images/Screenshot_150.png)
+
+![Color scheme example 4](Other/Images/Screenshot_152.png)
+
+![Color scheme example 5](Other/Images/Screenshot_149.png)
+
 ## Rules
 
 - Component parameters order: Name, Value, other parameters, Case, Part Number, Link and Note;

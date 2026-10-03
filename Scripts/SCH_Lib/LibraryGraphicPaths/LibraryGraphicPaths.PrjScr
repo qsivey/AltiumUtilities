@@ -1,0 +1,10 @@
+[Design]
+Version=1.0
+HierarchyMode=0
+
+[Document1]
+DocumentPath=LibraryGraphicPaths.pas
+AnnotationEnabled=1
+
+[Generic_ScriptingSystem]
+StartProcName=LibraryGraphicPaths.pas>RunLibraryGraphicPaths

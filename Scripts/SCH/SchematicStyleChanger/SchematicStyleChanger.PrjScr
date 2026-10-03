@@ -1,0 +1,8 @@
+[Design]
+Version=1.0
+
+[Document1]
+DocumentPath=SchematicStyleChanger.pas
+
+[Generic_ScriptingSystem]
+StartProcName=SchematicStyleChanger.pas>RunSchematicStyleChanger
